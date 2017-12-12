@@ -1,0 +1,22 @@
+{
+  "name": "user-action",
+  "version": "1.0.0",
+  "description": "Adding/updating/deleting/getting user details",
+  "main": "addPaymentMethod.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/deshpandega/user-action.git"
+  },
+  "author": "amitha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/deshpandega/user-action/issues"
+  },
+  "homepage": "https://github.com/deshpandega/user-action#readme",
+  "dependencies": {
+    "jsonwebtoken": "^8.1.0"
+  }
+}
