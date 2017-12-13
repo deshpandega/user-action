@@ -41,7 +41,7 @@
         reject({
           headers: { 'Content-Type': 'application/json' },
           statusCode: 401,
-          body: new Buffer(JSON.stringify("Error!")).toString('base64')
+          body: new Buffer(JSON.stringify("Something is wrong!!! Please try later")).toString('base64')
         });
       });
     }
@@ -54,13 +54,7 @@
       })
     .catch((error)=>{
       console.log('error during adding new payment method-->  '+error.statusCode);
-      return ({
-         headers: {
-            'Content-Type': 'application/json'
-          },
-          statusCode: 401,
-          body: new Buffer(JSON.stringify("Please login to perform this action!")).toString('base64')
-      });
+      return error;
     });
 
   return payment;
