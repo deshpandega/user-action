@@ -7,6 +7,8 @@ module.exports =  function postUser (params) {
 
   // Environment variable we are loading as params from config.json file
   const collectionName = params.collectionName;
+  const databaseConnections =  params.mongoDB_connection;
+
   console.log("collection name -> "+collectionName);
 
   const user = {
@@ -41,17 +43,14 @@ module.exports =  function postUser (params) {
   // References to use throughtout
   let database;
   let dbClient;
-
-  // Set parameters from environment variables
-  const databaseConnections =  params.mongoDB_connection;
-
+  
   //check for user if he already exists in table
   const checkUserIfExists = () =>{
   	return new Promise((resolve, reject)=>{
   		mongoClient.connect(databaseConnections, (err, client)=>{
   			if(err){
   				console.log("error in DB connection -> "+err);
-  				reject(err, client);
+  				reject(err);
   			}
   			else{
   				dbClient = client;
@@ -78,7 +77,7 @@ module.exports =  function postUser (params) {
   const addUserToCollection = (userData) => {
   	return new Promise((resolve, rejet)=>{
   		console.log('add user here');
-
+      userData.password = bcrypt.hashSync(userData.password, 10);
   		const collection = database.collection(collectionName);
   		// Add user to database
   		collection.insertOne(userData, (err, respond) => {
