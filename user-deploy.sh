@@ -14,6 +14,9 @@ wsk -i action update ichalkaranje.m@husky.neu.edu_dev/hobbylocale/user user.zip 
 
 wsk -i action update ichalkaranje.m@husky.neu.edu_dev/hobbylocale/postUser user.zip --kind nodejs:6 --web true --param-file config.json --main=postUser
 
+wsk -i action update ichalkaranje.m@husky.neu.edu_dev/hobbylocale/editUser user.zip --kind nodejs:6 --web true --param-file config.json --main=editUser
+
 # Get url of actions
 wsk -i action get ichalkaranje.m@husky.neu.edu_dev/hobbylocale/user --url
 wsk -i action get ichalkaranje.m@husky.neu.edu_dev/hobbylocale/postUser --url
+wsk -i action get ichalkaranje.m@husky.neu.edu_dev/hobbylocale/editUser --url
