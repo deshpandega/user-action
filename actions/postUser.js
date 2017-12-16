@@ -35,8 +35,7 @@ module.exports =  function postUser (params) {
 				"venue" : ""
 			}
 		],
-
-  "payments" : [{
+"payments" : [{
         "cardHolderName" : "",
         "cardNumber" : "",
         "cardMonth" : "",
